@@ -40,6 +40,9 @@ body {
 
 .fa-quote-left {
     font-size: 20px;
+    position: relative;
+    top: -10px;
+
 }
 
 .quote-author {
@@ -68,15 +71,12 @@ button {
     box-shadow: 0 5px rgba(121, 121, 121, 0.65);
 }
 
-.twitter-button:hover {
-    /* filter: brightness(150%); */
-    color: #3593db;
+button:hover {
+    color: #205882;
 }
 
 button:active {
-    /* Push the button down */
     transform: translate(0, 3px);
-    /* Reduce the box shadow */
     box-shadow: 0 2px rgba(48, 48, 48, 0.65);
 }
 
@@ -110,12 +110,52 @@ button:active {
 }
 
 /* Media Query : Tablet or Smaller */
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 501px) and (max-width: 1000px) {
     .quote-container {
         margin: auto 10px;
     }
 
     .quote-text {
         font-size: 25px;
+    }
+}
+
+/* Media Query : Mobile or Smaller */
+@media screen and (max-width: 500px) {
+    .quote-container {
+        margin: auto 5px;
+        padding: 10px;
+    }
+
+    .quote-text {
+        font-size: 20px;
+    }
+
+    .long-quote {
+        font-size: 16px;
+    }
+
+    .fa-quote-left {
+        font-size: 15px;
+    }
+
+    .quote-author {
+        font-size: 20px;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    button {
+        margin-top: 10px;
+        width: 100%;
+        height: 30px;
+        font-size: 14px;
+        padding-bottom: 25px;
+    }
+
+    .fa-twitter {
+        font-size: 14px;
     }
 }

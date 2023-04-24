@@ -5,6 +5,8 @@ const quote = document.getElementById("quote");
 const author = document.getElementById("author");
 const newQuoteBtn = document.getElementById("new-quote");
 const twitterBtn = document.getElementById("twitter");
+const audioBtn = document.getElementById("audio");
+const copyBtn = document.getElementById("copy");
 const loader = document.querySelector("span.loader");
 
 function loading() {
@@ -33,6 +35,25 @@ async function dataFetch() {
     }
 }
 
+newQuoteBtn.addEventListener("click", quoteGenerator);
+twitterBtn.addEventListener("click", twitterPost);
+
+function twitterPost() {
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${quote.textContent} - ${author.textContent}`;
+    window.open(twitterUrl, "_blank");
+
+}
+
+audioBtn.addEventListener("click", () => {
+    const audio = new SpeechSynthesisUtterance(`${quote.innerText} by ${author.innerText}`);
+    speechSynthesis.speak(audio);
+});
+
+copyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(quote.innerText);
+    alert("Copied to ClipBoard");
+});
+
 function quoteGenerator() {
     const newQuote = dataStorage[Math.floor(Math.random() * dataStorage.length)];
 
@@ -48,13 +69,5 @@ function quoteGenerator() {
     quote.textContent = newQuote.text;
 
 }
-
-function twitterPost() {
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${quote.textContent} - ${author.textContent}`;
-    window.open(twitterUrl, "_blank");
-}
-
-newQuoteBtn.addEventListener("click", quoteGenerator);
-twitterBtn.addEventListener("click", twitterPost);
 
 dataFetch();
