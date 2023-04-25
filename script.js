@@ -51,10 +51,12 @@ audioBtn.addEventListener("click", () => {
 
 copyBtn.addEventListener("click", () => {
     navigator.clipboard.writeText(quote.innerText);
-    alert("Copied to ClipBoard");
+    copyBtn.title = "Copied";
 });
 
 function quoteGenerator() {
+    copyBtn.title = "Click to copy";
+
     const newQuote = dataStorage[Math.floor(Math.random() * dataStorage.length)];
 
     const authorName = newQuote.author || "Unknown";
