@@ -68,16 +68,16 @@ button {
     background: #ff9d00;
     outline: none;
     padding: 10px 20px;
-    box-shadow: 0 5px rgba(121, 121, 121, 0.65);
+    box-shadow: 0 5px #210024;
 }
 
 button:hover {
-    color: #205882;
+    transform: scale(1.02);
 }
 
 button:active {
     transform: translate(0, 3px);
-    box-shadow: 0 2px rgba(48, 48, 48, 0.65);
+    box-shadow: 0 2px #210024;
 }
 
 .fa-twitter {
